@@ -1,0 +1,22 @@
+<h1>My Tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+  <li>
+    <%= link_to task.title, task_path(task.id) %>
+    </li>
+  <% end %>
+</ul>
+
+<div>
+  <%= link_to 'new task', tasks_new_path %>
+</div>
+
+<%= link_to "Delete",
+task_path(@tasks),
+method: :delete,
+data: { confirm: "Are you sure?" } %>
+
+<a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/tasks/:id">
+  Delete task
+</a>
